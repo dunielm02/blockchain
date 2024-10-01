@@ -1,7 +1,9 @@
 package blockchain
 
 import (
+	"fmt"
 	"testing"
+	"time"
 )
 
 func TestBlockchain(t *testing.T) {
@@ -12,6 +14,8 @@ func TestBlockchain(t *testing.T) {
 		"Send 2 more BTC to Ivan",
 	}
 
+	now := time.Now()
+
 	for _, v := range test {
 		bc.AddBlock(v)
 	}
@@ -21,4 +25,6 @@ func TestBlockchain(t *testing.T) {
 			t.Fatalf("Expected: %s, Got: %s", test[i], string(bc.blocks[i].Data))
 		}
 	}
+
+	fmt.Println(time.Since(now))
 }
