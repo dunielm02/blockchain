@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/spf13/cobra"
 )
 
@@ -12,5 +14,7 @@ var addBlock = &cobra.Command{
 
 	Run: func(cmd *cobra.Command, args []string) {
 		bc.AddBlock(args[0])
+
+		fmt.Println("Success!")
 	},
 }
